@@ -150,3 +150,23 @@
     transform: rotate(360deg);
   }
 }
+
+/* Button.module.css */
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .sm { height: 36px; padding: 0 16px; font-size: 0.85rem; }
+  .md { height: 44px; padding: 0 22px; font-size: 0.95rem; }
+  .lg { height: 50px; padding: 0 26px; font-size: 1.02rem; }
+
+  .button { letter-spacing: 0.1em; }
+}
+
+/* Kleinere Laptops */
+@media (max-width: 1024px) {
+  .sm { height: 34px; padding: 0 14px; font-size: 0.84rem; }
+  .md { height: 42px; padding: 0 20px; font-size: 0.93rem; }
+  .lg { height: 48px; padding: 0 24px; font-size: 1rem; }
+
+  .button { letter-spacing: 0.095em; }
+}

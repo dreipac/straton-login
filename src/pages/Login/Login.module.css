@@ -1,6 +1,52 @@
 .page {
   min-height: 100vh;
   background: #ffffff;
+
+  /* Base scale */
+  --ui-scale: 1;
+  --ui-gap: 12px;
+  --ui-header-mb: 32px;
+  --ui-title-size: 3rem;
+  --ui-subtitle-size: 1.1rem;
+  --ui-content-max: 420px;
+
+  /* Platz damit Logo NICHT über Title liegt */
+  --ui-header-pt: 110px;
+}
+
+@media (max-width: 1200px) {
+  .page {
+    --ui-scale: 0.9;
+    --ui-gap: 10px;
+    --ui-header-mb: 24px;
+    --ui-title-size: 2.5rem;
+    --ui-subtitle-size: 1rem;
+    --ui-content-max: 380px;
+
+    --ui-logo-top: 18px;
+    --ui-logo-left: 18px;
+    --ui-logo-h: 78px;
+
+    --ui-header-pt: 86px;
+  }
+}
+
+/* Kleinere Laptops */
+@media (max-width: 1024px) {
+  .page {
+    --ui-scale: 0.84;
+    --ui-gap: 9px;
+    --ui-header-mb: 20px;
+    --ui-title-size: 2.25rem;
+    --ui-subtitle-size: 0.95rem;
+    --ui-content-max: 360px;
+
+    --ui-logo-top: 16px;
+    --ui-logo-left: 16px;
+    --ui-logo-h: 70px;
+
+    --ui-header-pt: 78px;
+  }
 }
 
 .layout {
@@ -95,11 +141,13 @@
 
 .title {
   margin: 0;
-  font-size: 3rem;        /* geändert */
+  font-size: clamp(2.2rem, 3.2vw, 3.2rem);
   line-height: 1.1;
-  font-weight: 800;       /* optional stärker */
+  font-weight: 800;
   color: #111827;
 }
+
+
 
 
 .subtitle {
@@ -148,8 +196,23 @@
 
 .logo {
   position: absolute;
-  top: 24px;
-  left: 24px;
-  height: 100px;
+  top: calc(24px * var(--ui-scale));
+  left: calc(24px * var(--ui-scale));
+  height: calc(100px * var(--ui-scale));
   width: auto;
 }
+
+/* Kleine Laptops */
+@media (max-width: 1200px) {
+  .logo {
+    height: calc(85px * var(--ui-scale));
+  }
+}
+
+/* Noch kleinere Laptops */
+@media (max-width: 1024px) {
+  .logo {
+    height: calc(75px * var(--ui-scale));
+  }
+}
+
